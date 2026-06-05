@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.task {
+    flex: 1;
+    margin: 0;
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.status {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.done {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.inProgress {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.notStarted {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.deleteButton {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.deleteButton:hover {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
