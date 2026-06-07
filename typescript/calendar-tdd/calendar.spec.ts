@@ -18,10 +18,10 @@ describe('isLeapYear', () => {
     })
 
     it('should throw an error for year 0', () => {
-        expect(() => isLeapYear(0)).toThrow("Year must be a non-zero integer");
+        expect(() => isLeapYear(0)).toThrow("Year must be a non-zero positive integer");
     })
 
     it('should throw an error for negative year', () => {
-        expect(() => isLeapYear(-1)).toThrow("Year must be a positive integer");
+        expect(() => isLeapYear(-1)).toThrow("Year must be a non-zero positive integer");
     })
 });
