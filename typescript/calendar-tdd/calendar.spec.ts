@@ -16,4 +16,8 @@ describe('isLeapYear', () => {
     it('should be false for a year which is not divisible by 4', () => {
         expect(isLeapYear(2017)).toBe(false);
     })
+
+    it('should throw an error for year 0', () => {
+        expect(() => isLeapYear(0)).toThrow("Year must be a non-zero integer");
+    })
 });
