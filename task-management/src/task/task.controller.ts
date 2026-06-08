@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post,ValidationPipe } from "@nestjs/common";
 import { TaskService } from "./task.service";
 import type { Task } from "./types";
 import { CreateTaskDto } from "./dto/create-task.dto";
@@ -15,7 +15,8 @@ export class TaskController {
     }
 
     @Post()
-    createTask(@Body() taskDetails: CreateTaskDto): number {
+    createTask(@Body(new ValidationPipe()) taskDetails: CreateTaskDto): number {
+        console.log(taskDetails instanceof CreateTaskDto);
         return this.taskService.createTask(taskDetails);
     }
 }
