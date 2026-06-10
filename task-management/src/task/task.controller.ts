@@ -16,7 +16,6 @@ export class TaskController {
 
     @Post()
     createTask(@Body(new ValidationPipe()) taskDetails: CreateTaskDto): number {
-        console.log(taskDetails instanceof CreateTaskDto);
         return this.taskService.createTask(taskDetails);
     }
 }
