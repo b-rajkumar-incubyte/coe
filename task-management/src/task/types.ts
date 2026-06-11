@@ -1,4 +1,8 @@
-type TaskStatus = "Not started" | "In progress" | "Done";
+export enum TaskStatus {
+    NOT_STARTED = "Not started",
+    IN_PROGRESS = "In progress",
+    DONE = "Done",
+}
 
 export interface Task {
     id: number,
