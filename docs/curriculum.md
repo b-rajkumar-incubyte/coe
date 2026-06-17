@@ -32,25 +32,25 @@ Goal: A reusable PrismaService available across the NestJS app
 ## Module 3: Replace In-Memory Storage with Prisma CRUD
 Goal: All TasksService methods backed by the database
 
-- [ ] Step 3.1: Inject PrismaService into TasksService
-- [ ] Step 3.2: Implement findAll — read all tasks
-- [ ] Step 3.3: Implement findOne — read single task with 404 handling
-- [ ] Step 3.4: Implement create — insert a task
-- [ ] Step 3.5: Implement update — partial update with Prisma
-- [ ] Step 3.6: Implement remove — delete with existence check
-- [ ] Step 3.7: Centralise Prisma error handling (P2025 not-found, etc.)
+- [x] Step 3.1: Inject PrismaService into TasksService
+- [x] Step 3.2: Implement findAll — read all tasks
+- [x] Step 3.3: Implement findOne — read single task with 404 handling
+- [x] Step 3.4: Implement create — insert a task
+- [x] Step 3.5: Implement update — partial update with Prisma
+- [x] Step 3.6: Implement remove — delete with existence check
+- [x] Step 3.7: Centralise Prisma error handling (P2025 not-found, etc.)
 
 ---
 
 ## Module 4: User Model & Relationships
 Goal: User model with one-to-many Tasks, queryable with Prisma includes
 
-- [ ] Step 4.1: Add User model to Prisma schema
-- [ ] Step 4.2: Define the one-to-many relation (User → Tasks)
-- [ ] Step 4.3: Run migration for User + relation fields
-- [ ] Step 4.4: Fetch tasks with their owner (include/select)
-- [ ] Step 4.5: Fetch a user with all their tasks (nested reads)
-- [ ] Step 4.6: Wrap multi-step writes in a Prisma transaction
+- [x] Step 4.1: Add User model to Prisma schema
+- [x] Step 4.2: Define the one-to-many relation (User → Tasks)
+- [x] Step 4.3: Run migration for User + relation fields
+- [x] Step 4.4: Fetch tasks with their owner (include/select)
+- [x] Step 4.5: Fetch a user with all their tasks (nested reads)
+- [x] Step 4.6: Wrap multi-step writes in a Prisma transaction
 
 ---
 

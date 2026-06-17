@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, ParseIntPipe, Patch, Post, ValidationPipe } from "@nestjs/common";
+import { BadRequestException, Body, Controller, DefaultValuePipe, Delete, Get, HttpCode, Param, ParseIntPipe, Patch, Post, Query, ValidationPipe } from "@nestjs/common";
 import { TaskService } from "./task.service";
 import type { Task } from "../../generated/prisma/client";
 import { CreateTaskDto } from "./dto/create-task.dto";
@@ -11,8 +11,12 @@ export class TaskController {
     constructor(private readonly taskService: TaskService){}
 
     @Get()
-    getAll(): Promise<Task[]> {
-        return this.taskService.getAll();
+    getAll(
+        @Query('page', new DefaultValuePipe(1), new ParseIntPipe({exceptionFactory(_) {
+            return new BadRequestException("Page should be a valid integer")
+        },})) page:number,
+        @Query('size', new DefaultValuePipe(25), ParseIntPipe) limit:number): Promise<Task[]> {
+        return this.taskService.getAll(page, limit);
     }
 
     @Post()

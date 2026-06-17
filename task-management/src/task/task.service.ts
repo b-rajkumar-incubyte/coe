@@ -8,9 +8,13 @@ import { UpdateTaskDto } from "./dto/update-task.dto";
 export class TaskService {
     constructor(private readonly prisma: PrismaService) {}
 
-    getAll() {
+    getAll(page: number, limit: number) {
+        const skip = (page - 1) * limit;
+
         return this.prisma.task.findMany({
-            include: {user: true}
+            skip,
+            take: limit,
+            include: {user: true},
         });
     }
 
