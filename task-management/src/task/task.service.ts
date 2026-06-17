@@ -9,7 +9,9 @@ export class TaskService {
     constructor(private readonly prisma: PrismaService) {}
 
     getAll() {
-        return this.prisma.task.findMany();
+        return this.prisma.task.findMany({
+            include: {user: true}
+        });
     }
 
     createTask(dto: CreateTaskDto) {
