@@ -57,7 +57,7 @@ Goal: User model with one-to-many Tasks, queryable with Prisma includes
 ## Module 5: Pagination & Database Seeding
 Goal: Paginated task list and repeatable seed data for development
 
-- [ ] Step 5.1: Add skip/take pagination to GET /tasks
-- [ ] Step 5.2: Return pagination metadata (total, page, limit)
-- [ ] Step 5.3: Write a Prisma seed script (prisma/seed.ts)
-- [ ] Step 5.4: Configure seed in package.json and run it
+- [x] Step 5.1: Add skip/take pagination to GET /tasks
+- [x] Step 5.2: Return pagination metadata (total, page, limit)
+- [x] Step 5.3: Write a Prisma seed script (prisma/seed.ts)
+- [x] Step 5.4: Configure seed in package.json and run it

@@ -8,14 +8,20 @@ import { UpdateTaskDto } from "./dto/update-task.dto";
 export class TaskService {
     constructor(private readonly prisma: PrismaService) {}
 
-    getAll(page: number, limit: number) {
+    async getAll(page: number, limit: number) {
         const skip = (page - 1) * limit;
 
-        return this.prisma.task.findMany({
-            skip,
-            take: limit,
-            include: {user: true},
-        });
+        const [tasks, total] = await this.prisma.$transaction([
+            this.prisma.task.findMany({skip,take: limit,include: {user: true}}),
+            this.prisma.task.count()
+        ]);
+
+        return {
+            tasks,
+            total,
+            page, 
+            limit
+        }
     }
 
     createTask(dto: CreateTaskDto) {

@@ -12,10 +12,8 @@ export class TaskController {
 
     @Get()
     getAll(
-        @Query('page', new DefaultValuePipe(1), new ParseIntPipe({exceptionFactory(_) {
-            return new BadRequestException("Page should be a valid integer")
-        },})) page:number,
-        @Query('size', new DefaultValuePipe(25), ParseIntPipe) limit:number): Promise<Task[]> {
+        @Query('page', new DefaultValuePipe(1), ParseIntPipe) page:number,
+        @Query('size', new DefaultValuePipe(25), ParseIntPipe) limit:number) {
         return this.taskService.getAll(page, limit);
     }
 
