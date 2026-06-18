@@ -26,7 +26,7 @@ Goal: Create the Next.js project and understand how App Router organizes files d
 Goal: Create the /tasks route and understand how folders become URLs.
 
 - [x] Step 2.1: Create app/tasks/page.tsx — your first route
-- [ ] Step 2.2: Add a navigation bar to the root layout
+- [x] Step 2.2: Add a navigation bar to the root layout
 - [ ] Step 2.3: Build a static tasks list with hardcoded data
 - [ ] Step 2.4: Style the tasks list with Tailwind
 - [ ] Step 2.5: Checkpoint — routing and layouts
