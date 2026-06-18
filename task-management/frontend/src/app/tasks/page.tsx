@@ -5,21 +5,16 @@ type Task = {
   status: "TODO" | "IN_PROGRESS" | "DONE";
 };
 
-const tasks: Task[] = [
-  { id: 1, title: "Set up NestJS backend", description: "Initialize project and install dependencies", status: "DONE" },
-  { id: 2, title: "Create task model", description: "Define Task entity with Prisma", status: "DONE" },
-  { id: 3, title: "Build task API", description: "CRUD endpoints for tasks", status: "IN_PROGRESS" },
-  { id: 4, title: "Build frontend", description: "Next.js app with task list and form", status: "TODO" },
-];
-
 const statusStyles: Record<Task["status"], string> = {
   DONE: "bg-green-100 text-green-700",
   IN_PROGRESS: "bg-yellow-100 text-yellow-700",
   TODO: "bg-gray-100 text-gray-600",
 };
 
+export default async function TasksPage() {
+  const tasksResponse = await fetch("http://localhost:3001/task").then(r => r.json());
+  const tasks: Task[] = tasksResponse.tasks;
 
-export default function TasksPage() {
   return (
     <main className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-2xl mx-auto">

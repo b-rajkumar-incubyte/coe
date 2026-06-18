@@ -27,9 +27,9 @@ Goal: Create the /tasks route and understand how folders become URLs.
 
 - [x] Step 2.1: Create app/tasks/page.tsx — your first route
 - [x] Step 2.2: Add a navigation bar to the root layout
-- [ ] Step 2.3: Build a static tasks list with hardcoded data
-- [ ] Step 2.4: Style the tasks list with Tailwind
-- [ ] Step 2.5: Checkpoint — routing and layouts
+- [x] Step 2.3: Build a static tasks list with hardcoded data
+- [x] Step 2.4: Style the tasks list with Tailwind
+- [x] Step 2.5: Checkpoint — routing and layouts
 
 ---
 
