@@ -19,13 +19,14 @@ export default async function TasksPage({
   const { page: pageParam } = await searchParams;
   const page = Math.max(1, Number(pageParam ?? 1));
 
+  await new Promise((r) => setTimeout(r, 3000))
   const res = await fetch(
     `http://localhost:8001/task?page=${page}&size=${PAGE_SIZE}`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch tasks");
-  }
+  // if (!res.ok) {
+  //   throw new Error("Failed to fetch tasks");
+  // }
 
   const { tasks, total }: TasksResponse = await res.json();
   const totalPages = Math.ceil(total / PAGE_SIZE);

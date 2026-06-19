@@ -2,27 +2,35 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { validateTaskForm, type TaskFormErrors } from "@/lib/validateTask";
 
 export default function CreateTaskForm() {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [errors, setErrors] = useState<TaskFormErrors>({});
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const validationErrors = validateTaskForm(title);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     setSubmitting(true);
-    setError(null);
+    setServerError(null);
 
     const res = await fetch("http://localhost:8001/task", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, description: description || undefined }),
+      body: JSON.stringify({ title: title.trim(), description: description || undefined }),
     });
 
     if (!res.ok) {
-      setError("Failed to create task. Please try again.");
+      setServerError("Failed to create task. Please try again.");
       setSubmitting(false);
       return;
     }
@@ -41,10 +49,16 @@ export default function CreateTaskForm() {
           id="title"
           type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            setTitle(e.target.value);
+            if (errors.title) setErrors({});
+          }}
           placeholder="What needs to be done?"
-          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className={`w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+            errors.title ? "border-red-400" : "border-gray-200"
+          }`}
         />
+        {errors.title && <p className="text-xs text-red-600 mt-1">{errors.title}</p>}
       </div>
 
       <div>
@@ -61,7 +75,7 @@ export default function CreateTaskForm() {
         />
       </div>
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {serverError && <p className="text-sm text-red-600">{serverError}</p>}
 
       <button
         type="submit"

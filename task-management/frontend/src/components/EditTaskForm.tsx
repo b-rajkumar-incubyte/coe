@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { type Task } from "@/components/TaskCard";
+import { validateTaskForm, type TaskFormErrors } from "@/lib/validateTask";
 
 type TaskStatus = Task["status"];
 
@@ -17,22 +18,29 @@ export default function EditTaskForm({ task }: { task: Task }) {
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description ?? "");
   const [status, setStatus] = useState<TaskStatus>(task.status);
+  const [errors, setErrors] = useState<TaskFormErrors>({});
   const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [serverError, setServerError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const validationErrors = validateTaskForm(title);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     setSubmitting(true);
-    setError(null);
+    setServerError(null);
 
     const res = await fetch(`http://localhost:8001/task/${task.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, description: description || undefined, status }),
+      body: JSON.stringify({ title: title.trim(), description: description || undefined, status }),
     });
 
     if (!res.ok) {
-      setError("Failed to update task. Please try again.");
+      setServerError("Failed to update task. Please try again.");
       setSubmitting(false);
       return;
     }
@@ -50,9 +58,15 @@ export default function EditTaskForm({ task }: { task: Task }) {
           id="title"
           type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          onChange={(e) => {
+            setTitle(e.target.value);
+            if (errors.title) setErrors({});
+          }}
+          className={`w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+            errors.title ? "border-red-400" : "border-gray-200"
+          }`}
         />
+        {errors.title && <p className="text-xs text-red-600 mt-1">{errors.title}</p>}
       </div>
 
       <div>
@@ -86,7 +100,7 @@ export default function EditTaskForm({ task }: { task: Task }) {
         </select>
       </div>
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {serverError && <p className="text-sm text-red-600">{serverError}</p>}
 
       <button
         type="submit"

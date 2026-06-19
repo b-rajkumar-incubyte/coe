@@ -70,8 +70,8 @@ Goal: Build forms that create and update tasks by calling the NestJS API directl
 Goal: Complete CRUD by adding delete with confirmation and validate input before sending.
 
 - [x] Step 6.1: Delete task with a confirmation prompt
-- [ ] Step 6.2: Client-side validation — catch errors before the request leaves the browser
-- [ ] Step 6.3: Display server errors inline in the form
+- [x] Step 6.2: Client-side validation — catch errors before the request leaves the browser
+- [x] Step 6.3: Display server errors inline in the form
 - [ ] Step 6.4: Checkpoint — validation and error UX patterns
 
 ---
