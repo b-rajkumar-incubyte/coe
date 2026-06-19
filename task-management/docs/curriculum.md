@@ -40,8 +40,8 @@ Goal: Fetch real tasks from the NestJS backend using Server Components.
 - [x] Step 3.2: Replace hardcoded data with real API call to GET /task
 - [x] Step 3.3: Dynamic route — create app/tasks/[id]/page.tsx for task detail
 - [x] Step 3.4: Add app/tasks/loading.tsx — automatic loading skeleton
-- [ ] Step 3.5: Add app/tasks/error.tsx — automatic error boundary
-- [ ] Step 3.6: Checkpoint — Server Components vs Client Components
+- [x] Step 3.5: Add app/tasks/error.tsx — automatic error boundary
+- [x] Step 3.6: Checkpoint — Server Components vs Client Components
 
 ---
 
