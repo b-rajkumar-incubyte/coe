@@ -45,11 +45,50 @@ Goal: Fetch real tasks from the NestJS backend using Server Components.
 
 ---
 
-## Module 4: Client Components & Create Task Form
-Goal: Add interactivity with Client Components and submit a new task to the API.
+## Module 4: Client Components & Interactive UI
+Goal: Understand when Server Components can't do the job, add your first interactive feature with useState.
 
-- [ ] Step 4.1: "use client" — when and why to use it
-- [ ] Step 4.2: Extract TaskList as a Client Component with status filter
-- [ ] Step 4.3: Build a CreateTaskForm Client Component
-- [ ] Step 4.4: POST new task to NestJS backend
-- [ ] Step 4.5: Final checkpoint + polish
+- [x] Step 4.1: "use client" — when and why to use it
+- [x] Step 4.2: Add a status filter bar — useState to filter the task list client-side
+- [ ] Step 4.3: Checkpoint — deciding between Server and Client Components
+
+---
+
+## Module 5: Forms — Creating & Editing Tasks
+Goal: Build forms that create and update tasks by calling the NestJS API directly from the browser.
+
+- [ ] Step 5.1: Enable CORS in NestJS — why browser requests are blocked without it
+- [ ] Step 5.2: Build CreateTaskForm — controlled inputs and useState
+- [ ] Step 5.3: POST to /task and redirect to the new task after creation
+- [ ] Step 5.4: Build EditTaskForm — pre-populate a form from existing task data
+- [ ] Step 5.5: PATCH /task/:id to save edits
+- [ ] Step 5.6: Checkpoint — form state and submission patterns
+
+---
+
+## Module 6: Delete, Validation & Error Handling
+Goal: Complete CRUD by adding delete with confirmation and validate input before sending.
+
+- [ ] Step 6.1: Delete task with a confirmation prompt
+- [ ] Step 6.2: Client-side validation — catch errors before the request leaves the browser
+- [ ] Step 6.3: Display server errors inline in the form
+- [ ] Step 6.4: Checkpoint — validation and error UX patterns
+
+---
+
+## Module 7: Server Actions
+Goal: Learn Server Actions — Next.js's native pattern for calling server-side logic from a form.
+
+- [ ] Step 7.1: What is a Server Action — a server function called directly from a form
+- [ ] Step 7.2: Rewrite create task using a Server Action
+- [ ] Step 7.3: revalidatePath — tell Next.js to re-render server data after a mutation
+- [ ] Step 7.4: Checkpoint — when to use Server Actions vs direct fetch
+
+---
+
+## Module 8: Optimistic UI & Polish
+Goal: Make mutations feel instant, then clean up and ship.
+
+- [ ] Step 8.1: useOptimistic — update the UI before the server confirms
+- [ ] Step 8.2: Pending state during form submission — disable the button, show a spinner
+- [ ] Step 8.3: Final checkpoint + polish

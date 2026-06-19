@@ -8,8 +8,6 @@ export default async function TaskDetailPage({
 }) {
   const { id } = await params;
 
-  await new Promise((r) => setTimeout(r, 2000))
-
   const res = await fetch(`http://localhost:8001/task/${id}`);
 
   if (!res.ok) {

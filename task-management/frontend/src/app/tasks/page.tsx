@@ -1,5 +1,6 @@
 import Link from "next/link";
-import TaskCard, { type Task } from "@/components/TaskCard";
+import TaskList from "@/components/TaskList";
+import { type Task } from "@/components/TaskCard";
 
 type TasksResponse = {
   tasks: Task[];
@@ -35,15 +36,7 @@ export default async function TasksPage({
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Tasks</h1>
         <p className="text-sm text-gray-500 mb-6">{total} tasks total</p>
 
-        <ul className="space-y-3">
-          {tasks.map((task) => (
-            <li key={task.id}>
-              <Link href={`/tasks/${task.id}`} className="block hover:opacity-90 transition-opacity">
-                <TaskCard task={task} />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <TaskList tasks={tasks} />
 
         {totalPages > 1 && (
           <div className="flex items-center justify-between mt-6">
