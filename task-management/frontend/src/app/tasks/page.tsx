@@ -18,11 +18,6 @@ export default async function TasksPage({
   const { page: pageParam } = await searchParams;
   const page = Math.max(1, Number(pageParam ?? 1));
 
-  await new Promise((r) => {
-    setTimeout(r, 10000);
-  })
-
-
   const res = await fetch(
     `http://localhost:8001/task?page=${page}&size=${PAGE_SIZE}`
   );
