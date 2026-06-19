@@ -50,16 +50,16 @@ Goal: Understand when Server Components can't do the job, add your first interac
 
 - [x] Step 4.1: "use client" — when and why to use it
 - [x] Step 4.2: Add a status filter bar — useState to filter the task list client-side
-- [ ] Step 4.3: Checkpoint — deciding between Server and Client Components
+- [x] Step 4.3: Checkpoint — deciding between Server and Client Components
 
 ---
 
 ## Module 5: Forms — Creating & Editing Tasks
 Goal: Build forms that create and update tasks by calling the NestJS API directly from the browser.
 
-- [ ] Step 5.1: Enable CORS in NestJS — why browser requests are blocked without it
-- [ ] Step 5.2: Build CreateTaskForm — controlled inputs and useState
-- [ ] Step 5.3: POST to /task and redirect to the new task after creation
+- [x] Step 5.1: Enable CORS in NestJS — why browser requests are blocked without it
+- [x] Step 5.2: Build CreateTaskForm — controlled inputs and useState
+- [x] Step 5.3: POST to /task and redirect to the new task after creation
 - [ ] Step 5.4: Build EditTaskForm — pre-populate a form from existing task data
 - [ ] Step 5.5: PATCH /task/:id to save edits
 - [ ] Step 5.6: Checkpoint — form state and submission patterns
