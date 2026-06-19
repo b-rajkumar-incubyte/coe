@@ -60,16 +60,16 @@ Goal: Build forms that create and update tasks by calling the NestJS API directl
 - [x] Step 5.1: Enable CORS in NestJS — why browser requests are blocked without it
 - [x] Step 5.2: Build CreateTaskForm — controlled inputs and useState
 - [x] Step 5.3: POST to /task and redirect to the new task after creation
-- [ ] Step 5.4: Build EditTaskForm — pre-populate a form from existing task data
-- [ ] Step 5.5: PATCH /task/:id to save edits
-- [ ] Step 5.6: Checkpoint — form state and submission patterns
+- [x] Step 5.4: Build EditTaskForm — pre-populate a form from existing task data
+- [x] Step 5.5: PATCH /task/:id to save edits
+- [x] Step 5.6: Checkpoint — form state and submission patterns
 
 ---
 
 ## Module 6: Delete, Validation & Error Handling
 Goal: Complete CRUD by adding delete with confirmation and validate input before sending.
 
-- [ ] Step 6.1: Delete task with a confirmation prompt
+- [x] Step 6.1: Delete task with a confirmation prompt
 - [ ] Step 6.2: Client-side validation — catch errors before the request leaves the browser
 - [ ] Step 6.3: Display server errors inline in the form
 - [ ] Step 6.4: Checkpoint — validation and error UX patterns
