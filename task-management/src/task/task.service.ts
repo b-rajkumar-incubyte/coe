@@ -8,6 +8,13 @@ import { UpdateTaskDto } from "./dto/update-task.dto";
 export class TaskService {
     constructor(private readonly prisma: PrismaService) {}
 
+    async get(taskId: number) {
+        const task = await this.prisma.task.findUnique({ where: { id: taskId } });
+        if(task === null) throw new NotFoundException(`Task with id: ${taskId} not found`);
+
+        return task;
+    }
+
     async getAll(page: number, limit: number) {
         const skip = (page - 1) * limit;
 

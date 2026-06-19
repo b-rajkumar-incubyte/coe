@@ -1,0 +1,34 @@
+type TaskStatus = "NOT_STARTED" | "IN_PROGRESS" | "DONE";
+
+export type Task = {
+  id: number;
+  title: string;
+  description: string | null;
+  status: TaskStatus;
+};
+
+const statusStyles: Record<TaskStatus, string> = {
+  DONE: "bg-green-100 text-green-700",
+  IN_PROGRESS: "bg-yellow-100 text-yellow-700",
+  NOT_STARTED: "bg-gray-100 text-gray-600",
+};
+
+export default function TaskCard({ task }: { task: Task }) {
+  return (
+    <div className="bg-white rounded-lg border border-gray-200 p-4">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="font-medium text-gray-900">{task.title}</p>
+          {task.description && (
+            <p className="text-sm text-gray-500 mt-1">{task.description}</p>
+          )}
+        </div>
+        <span
+          className={`text-xs font-medium px-2 py-1 rounded-full shrink-0 ${statusStyles[task.status]}`}
+        >
+          {task.status}
+        </span>
+      </div>
+    </div>
+  );
+}

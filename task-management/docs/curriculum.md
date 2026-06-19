@@ -3,7 +3,7 @@
 ## Tech Stack
 - Next.js 16.2 (App Router, TypeScript)
 - Tailwind CSS
-- Backend: NestJS on http://localhost:3000
+- Backend: NestJS on http://localhost:8000
 
 ## Learner Profile
 - Knows React (hooks, components, JSX)
@@ -36,8 +36,8 @@ Goal: Create the /tasks route and understand how folders become URLs.
 ## Module 3: Data Fetching from NestJS API
 Goal: Fetch real tasks from the NestJS backend using Server Components.
 
-- [ ] Step 3.1: Server Components — fetching data with async/await (no useEffect)
-- [ ] Step 3.2: Replace hardcoded data with real API call to GET /task
+- [x] Step 3.1: Server Components — fetching data with async/await (no useEffect)
+- [x] Step 3.2: Replace hardcoded data with real API call to GET /task
 - [ ] Step 3.3: Dynamic route — create app/tasks/[id]/page.tsx for task detail
 - [ ] Step 3.4: Add app/tasks/loading.tsx — automatic loading skeleton
 - [ ] Step 3.5: Add app/tasks/error.tsx — automatic error boundary

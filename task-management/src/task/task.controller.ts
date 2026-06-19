@@ -10,6 +10,11 @@ export class TaskController {
 
     constructor(private readonly taskService: TaskService){}
 
+    @Get(':id')
+    getTask(@Param('id', ParseIntPipe) taskId: number) {
+        return this.taskService.get(taskId);
+    }
+
     @Get()
     getAll(
         @Query('page', new DefaultValuePipe(1), ParseIntPipe) page:number,
