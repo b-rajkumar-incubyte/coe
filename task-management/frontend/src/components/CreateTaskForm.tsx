@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { createTask } from "@/lib/actions";
 import { validateTaskForm, type TaskFormErrors } from "@/lib/validateTask";
+import SubmitButton from "@/components/SubmitButton";
 
 export default function CreateTaskForm() {
   const [title, setTitle] = useState("");
@@ -68,13 +69,7 @@ export default function CreateTaskForm() {
 
       {serverError && <p className="text-sm text-red-600">{serverError}</p>}
 
-      <button
-        type="submit"
-        disabled={submitting}
-        className="w-full py-2 px-4 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {submitting ? "Creating..." : "Create task"}
-      </button>
+      <SubmitButton label="Create task" pendingLabel="Creating..." disabled={submitting} />
     </form>
   );
 }

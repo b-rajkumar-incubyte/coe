@@ -4,6 +4,7 @@ import { useState } from "react";
 import { type Task } from "@/components/TaskCard";
 import { validateTaskForm, type TaskFormErrors } from "@/lib/validateTask";
 import { updateTask } from "@/lib/actions";
+import SubmitButton from "@/components/SubmitButton";
 
 type TaskStatus = Task["status"];
 
@@ -94,13 +95,7 @@ export default function EditTaskForm({ task }: { task: Task }) {
 
       {serverError && <p className="text-sm text-red-600">{serverError}</p>}
 
-      <button
-        type="submit"
-        disabled={submitting}
-        className="w-full py-2 px-4 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {submitting ? "Saving..." : "Save changes"}
-      </button>
+      <SubmitButton label="Save changes" pendingLabel="Saving..." disabled={submitting} />
     </form>
   );
 }
