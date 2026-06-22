@@ -81,14 +81,14 @@ Goal: Learn Server Actions — Next.js's native pattern for calling server-side 
 
 - [x] Step 7.1: What is a Server Action — a server function called directly from a form
 - [x] Step 7.2: Rewrite create task using a Server Action
-- [ ] Step 7.3: revalidatePath — tell Next.js to re-render server data after a mutation
-- [ ] Step 7.4: Checkpoint — when to use Server Actions vs direct fetch
+- [x] Step 7.3: revalidatePath — tell Next.js to re-render server data after a mutation
+- [x] Step 7.4: Checkpoint — when to use Server Actions vs direct fetch
 
 ---
 
 ## Module 8: Optimistic UI & Polish
 Goal: Make mutations feel instant, then clean up and ship.
 
-- [ ] Step 8.1: useOptimistic — update the UI before the server confirms
+- [x] Step 8.1: useOptimistic — update the UI before the server confirms
 - [ ] Step 8.2: Pending state during form submission — disable the button, show a spinner
 - [ ] Step 8.3: Final checkpoint + polish

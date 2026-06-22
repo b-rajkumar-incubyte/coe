@@ -1,6 +1,7 @@
 import Link from "next/link";
 import TaskCard, { type Task } from "@/components/TaskCard";
 import DeleteTaskButton from "@/components/DeleteTaskButton";
+import StatusToggle from "@/components/StatusToggle";
 
 export default async function TaskDetailPage({
   params,
@@ -9,9 +10,7 @@ export default async function TaskDetailPage({
 }) {
   const { id } = await params;
   const res = await fetch(`http://localhost:8001/task/${id}`);
-  if (!res.ok) {
-    throw new Error(`Task ${id} not found`);
-  }
+  if (!res.ok) throw new Error(`Task ${id} not found`);
   const task: Task = await res.json();
 
   return (
@@ -35,6 +34,7 @@ export default async function TaskDetailPage({
           </div>
         </div>
         <TaskCard task={task} />
+        <StatusToggle task={task} />
       </div>
     </main>
   );
