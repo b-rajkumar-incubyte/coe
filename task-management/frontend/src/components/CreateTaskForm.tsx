@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { createTask } from "@/lib/actions";
 import { validateTaskForm, type TaskFormErrors } from "@/lib/validateTask";
 
 export default function CreateTaskForm() {
-  const router = useRouter();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState<TaskFormErrors>({});
@@ -23,20 +22,12 @@ export default function CreateTaskForm() {
     setSubmitting(true);
     setServerError(null);
 
-    const res = await fetch("http://localhost:8001/task", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: title.trim(), description: description || undefined }),
-    });
-
-    if (!res.ok) {
+    try {
+      await createTask(title.trim(), description || undefined);
+    } catch {
       setServerError("Failed to create task. Please try again.");
       setSubmitting(false);
-      return;
     }
-
-    const task = await res.json();
-    router.push(`/tasks/${task.id}`);
   }
 
   return (

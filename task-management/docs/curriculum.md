@@ -72,15 +72,15 @@ Goal: Complete CRUD by adding delete with confirmation and validate input before
 - [x] Step 6.1: Delete task with a confirmation prompt
 - [x] Step 6.2: Client-side validation — catch errors before the request leaves the browser
 - [x] Step 6.3: Display server errors inline in the form
-- [ ] Step 6.4: Checkpoint — validation and error UX patterns
+- [x] Step 6.4: Checkpoint — validation and error UX patterns
 
 ---
 
 ## Module 7: Server Actions
 Goal: Learn Server Actions — Next.js's native pattern for calling server-side logic from a form.
 
-- [ ] Step 7.1: What is a Server Action — a server function called directly from a form
-- [ ] Step 7.2: Rewrite create task using a Server Action
+- [x] Step 7.1: What is a Server Action — a server function called directly from a form
+- [x] Step 7.2: Rewrite create task using a Server Action
 - [ ] Step 7.3: revalidatePath — tell Next.js to re-render server data after a mutation
 - [ ] Step 7.4: Checkpoint — when to use Server Actions vs direct fetch
 
