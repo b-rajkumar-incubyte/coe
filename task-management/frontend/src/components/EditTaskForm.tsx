@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { type Task } from "@/components/TaskCard";
 import { validateTaskForm, type TaskFormErrors } from "@/lib/validateTask";
+import { updateTask } from "@/lib/actions";
 
 type TaskStatus = Task["status"];
 
@@ -14,7 +14,6 @@ const STATUS_OPTIONS: { label: string; value: TaskStatus }[] = [
 ];
 
 export default function EditTaskForm({ task }: { task: Task }) {
-  const router = useRouter();
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description ?? "");
   const [status, setStatus] = useState<TaskStatus>(task.status);
@@ -33,19 +32,12 @@ export default function EditTaskForm({ task }: { task: Task }) {
     setSubmitting(true);
     setServerError(null);
 
-    const res = await fetch(`http://localhost:8001/task/${task.id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: title.trim(), description: description || undefined, status }),
-    });
-
-    if (!res.ok) {
+    try {
+      await updateTask(task.id, title.trim(), description || undefined, status);
+    } catch {
       setServerError("Failed to update task. Please try again.");
       setSubmitting(false);
-      return;
     }
-
-    router.push(`/tasks/${task.id}`);
   }
 
   return (

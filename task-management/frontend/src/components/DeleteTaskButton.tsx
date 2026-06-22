@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { deleteTask } from "@/lib/actions";
 
 export default function DeleteTaskButton({ taskId }: { taskId: number }) {
-  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -19,17 +19,13 @@ export default function DeleteTaskButton({ taskId }: { taskId: number }) {
 
   async function handleDelete() {
     setDeleting(true);
-    const res = await fetch(`http://localhost:8001/task/${taskId}`, {
-      method: "DELETE",
-    });
-
-    if (!res.ok) {
+    try {
+      await deleteTask(taskId);
+    } catch {
+      setError("Failed to delete task. Please try again.");
       setDeleting(false);
       setOpen(false);
-      return;
     }
-
-    router.push("/tasks");
   }
 
   return (
@@ -52,6 +48,7 @@ export default function DeleteTaskButton({ taskId }: { taskId: number }) {
           >
             <h2 className="text-lg font-semibold text-gray-900 mb-2">Delete task?</h2>
             <p className="text-sm text-gray-500 mb-6">This action cannot be undone.</p>
+            {error && <p className="text-sm text-red-600 mb-4">{error}</p>}
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => setOpen(false)}
