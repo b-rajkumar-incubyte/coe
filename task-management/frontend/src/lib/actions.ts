@@ -13,6 +13,7 @@ export async function createTask(title: string, description?: string) {
   if (!res.ok) throw new Error("Failed to create task.");
 
   const task = await res.json();
+  revalidatePath("/tasks");
   redirect(`/tasks/${task.id}`);
 }
 

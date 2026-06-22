@@ -90,5 +90,5 @@ Goal: Learn Server Actions — Next.js's native pattern for calling server-side 
 Goal: Make mutations feel instant, then clean up and ship.
 
 - [x] Step 8.1: useOptimistic — update the UI before the server confirms
-- [ ] Step 8.2: Pending state during form submission — disable the button, show a spinner
-- [ ] Step 8.3: Final checkpoint + polish
+- [x] Step 8.2: Pending state during form submission — disable the button, show a spinner
+- [x] Step 8.3: Final checkpoint + polish
