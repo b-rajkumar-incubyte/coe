@@ -32,13 +32,13 @@ export default async function TasksPage({
   const totalPages = Math.ceil(total / PAGE_SIZE);
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-gray-50 px-4 py-6 sm:px-8 sm:py-10">
       <div className="max-w-2xl mx-auto">
         <div className="flex items-center justify-between mb-2">
-          <h1 className="text-3xl font-bold text-gray-900">Tasks</h1>
+          <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">Tasks</h1>
           <Link
             href="/tasks/new"
-            className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-4 py-2 text-sm bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors"
           >
             New task
           </Link>

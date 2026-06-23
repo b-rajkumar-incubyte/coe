@@ -20,14 +20,14 @@ export default function TaskList({ tasks }: { tasks: Task[] }) {
 
   return (
     <div>
-      <div className="flex gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-6">
         {FILTERS.map(({ label, value }) => (
           <button
             key={value}
             onClick={() => setFilter(value)}
             className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
               filter === value
-                ? "bg-blue-600 text-white border-blue-600"
+                ? "bg-brand-600 text-white border-brand-600"
                 : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
             }`}
           >
