@@ -13,9 +13,9 @@ const STATUS_OPTIONS: { value: TaskStatus; label: string }[] = [
 ];
 
 const activeStyles: Record<TaskStatus, string> = {
-  NOT_STARTED: "bg-gray-200 text-gray-800",
-  IN_PROGRESS: "bg-yellow-100 text-yellow-800",
-  DONE: "bg-green-100 text-green-800",
+  NOT_STARTED: "bg-status-not-started text-status-not-started-fg",
+  IN_PROGRESS: "bg-status-in-progress text-status-in-progress-fg",
+  DONE:        "bg-status-done text-status-done-fg",
 };
 
 export default function StatusToggle({ task }: { task: Task }) {

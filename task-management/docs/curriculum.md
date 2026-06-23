@@ -92,3 +92,59 @@ Goal: Make mutations feel instant, then clean up and ship.
 - [x] Step 8.1: useOptimistic — update the UI before the server confirms
 - [x] Step 8.2: Pending state during form submission — disable the button, show a spinner
 - [x] Step 8.3: Final checkpoint + polish
+
+---
+
+## Module 9: Tailwind CSS & Design System
+Goal: Move from ad-hoc Tailwind usage to a deliberate design system — consistent tokens, responsive layouts, and an understanding of the trade-off when adding a component library.
+
+- [ ] Step 9.1: Design tokens in globals.css — :root variables + @theme inline, Tailwind v4's config model
+- [ ] Step 9.2: Responsive layout — Tailwind breakpoints, make the task list adapt from mobile to desktop
+- [ ] Step 9.3: Polish the task listing page — empty state, hover transitions, consistent spacing
+- [ ] Step 9.4: shadcn/ui — install one component to understand the component-library trade-off
+- [ ] Step 9.5: Checkpoint — Tailwind design system
+
+---
+
+## Module 10: Loading Skeletons
+Goal: Replace blank loading states with skeleton screens that preserve layout stability and feel faster.
+
+- [ ] Step 10.1: Why skeletons beat spinners — perceived performance and layout shift
+- [ ] Step 10.2: Build TaskListSkeleton — animate-pulse placeholders that mirror the real list
+- [ ] Step 10.3: Build TaskDetailSkeleton — mirror the task detail layout
+- [ ] Step 10.4: Wire skeletons into app/tasks/loading.tsx and app/tasks/[id]/loading.tsx
+- [ ] Step 10.5: Checkpoint — loading UX patterns
+
+---
+
+## Module 11: Toast Notifications
+Goal: Give users non-blocking feedback after mutations using a lightweight toast system built from scratch.
+
+- [ ] Step 11.1: Toast vs inline error — when to use each and why
+- [ ] Step 11.2: Build ToastProvider — useContext + useReducer for toast state
+- [ ] Step 11.3: Add ToastContainer to the root layout
+- [ ] Step 11.4: Trigger toasts after successful create / update / delete
+- [ ] Step 11.5: Animate toasts in and out with Tailwind transitions
+- [ ] Step 11.6: Checkpoint — feedback and notification patterns
+
+---
+
+## Module 12: Dark Mode
+Goal: Add system-aware dark mode using Tailwind's dark: variant and a toggle that persists the user's preference.
+
+- [ ] Step 12.1: Tailwind dark mode — class strategy vs media query strategy
+- [ ] Step 12.2: Configure tailwind.config.ts and update the root layout class
+- [ ] Step 12.3: Apply dark: variants to layout, nav, cards, and forms
+- [ ] Step 12.4: Build ThemeToggle — reads system preference, persists to localStorage
+- [ ] Step 12.5: Checkpoint — theming patterns
+
+---
+
+## Module 13: Accessibility
+Goal: Make the app usable by keyboard and screen reader users without changing its visual design.
+
+- [ ] Step 13.1: focus-visible styles — keyboard focus rings that don't affect mouse users
+- [ ] Step 13.2: ARIA labels on icon-only buttons — delete button, copy-link button
+- [ ] Step 13.3: Live regions — aria-live on status changes so screen readers announce them
+- [ ] Step 13.4: Skip-to-main-content link — lets keyboard users bypass the nav bar
+- [ ] Step 13.5: Checkpoint — accessibility audit

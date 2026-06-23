@@ -3,13 +3,44 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Brand tokens — visible in DevTools, used by @theme inline below */
+  --brand-50:  #eff6ff;
+  --brand-100: #dbeafe;
+  --brand-500: #3b82f6;
+  --brand-600: #2563eb;
+  --brand-700: #1d4ed8;
+
+  /* Status badge tokens */
+  --status-not-started:    #f3f4f6;
+  --status-in-progress:    #fef9c3;
+  --status-done:           #dcfce7;
+  --status-not-started-fg: #374151;
+  --status-in-progress-fg: #854d0e;
+  --status-done-fg:        #15803d;
 }
 
 @theme inline {
+  /* System */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand — Tailwind generates bg-brand-*, text-brand-*, border-brand-* from these */
+  --color-brand-50:  var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+
+  /* Status */
+  --color-status-not-started:    var(--status-not-started);
+  --color-status-in-progress:    var(--status-in-progress);
+  --color-status-done:           var(--status-done);
+  --color-status-not-started-fg: var(--status-not-started-fg);
+  --color-status-in-progress-fg: var(--status-in-progress-fg);
+  --color-status-done-fg:        var(--status-done-fg);
 }
 
 @media (prefers-color-scheme: dark) {

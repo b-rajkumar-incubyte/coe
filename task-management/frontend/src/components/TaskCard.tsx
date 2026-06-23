@@ -8,9 +8,9 @@ export type Task = {
 };
 
 const statusStyles: Record<TaskStatus, string> = {
-  DONE: "bg-green-100 text-green-700",
-  IN_PROGRESS: "bg-yellow-100 text-yellow-700",
-  NOT_STARTED: "bg-gray-100 text-gray-600",
+  NOT_STARTED: "bg-status-not-started text-status-not-started-fg",
+  IN_PROGRESS: "bg-status-in-progress text-status-in-progress-fg",
+  DONE:        "bg-status-done text-status-done-fg",
 };
 
 export default function TaskCard({ task }: { task: Task }) {
