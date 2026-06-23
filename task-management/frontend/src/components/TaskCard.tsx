@@ -13,6 +13,12 @@ const statusStyles: Record<TaskStatus, string> = {
   DONE:        "bg-status-done text-status-done-fg",
 };
 
+const statusLabels: Record<TaskStatus, string> = {
+  NOT_STARTED: "Not started",
+  IN_PROGRESS: "In progress",
+  DONE:        "Done",
+};
+
 export default function TaskCard({ task }: { task: Task }) {
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-4">
@@ -26,7 +32,7 @@ export default function TaskCard({ task }: { task: Task }) {
         <span
           className={`text-xs font-medium px-2 py-1 rounded-full shrink-0 ${statusStyles[task.status]}`}
         >
-          {task.status}
+          {statusLabels[task.status]}
         </span>
       </div>
     </div>

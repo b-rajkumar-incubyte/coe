@@ -36,15 +36,20 @@ export default function TaskList({ tasks }: { tasks: Task[] }) {
         ))}
       </div>
 
-      {visible.length === 0 ? (
-        <p className="text-sm text-gray-500">No tasks match this filter.</p>
+      {tasks.length === 0 ? (
+        <div className="text-center py-16">
+          <p className="font-medium text-gray-500">No tasks yet</p>
+          <p className="text-sm text-gray-400 mt-1">Create your first task to get started.</p>
+        </div>
+      ) : visible.length === 0 ? (
+        <p className="text-sm text-gray-500 py-4">No tasks match this filter.</p>
       ) : (
         <ul className="space-y-3">
           {visible.map((task) => (
             <li key={task.id}>
               <Link
                 href={`/tasks/${task.id}`}
-                className="block hover:opacity-90 transition-opacity"
+                className="block hover:shadow-md hover:-translate-y-0.5 transition-all duration-150"
               >
                 <TaskCard task={task} />
               </Link>
