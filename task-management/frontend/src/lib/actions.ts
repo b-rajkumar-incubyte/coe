@@ -14,7 +14,7 @@ export async function createTask(title: string, description?: string) {
 
   const task = await res.json();
   revalidatePath("/tasks");
-  redirect(`/tasks/${task.id}`);
+  redirect(`/tasks/${task.id}?toast=created`);
 }
 
 export async function updateTask(
@@ -32,7 +32,7 @@ export async function updateTask(
   if (!res.ok) throw new Error("Failed to update task.");
 
   revalidatePath(`/tasks/${id}`);
-  redirect(`/tasks/${id}`);
+  redirect(`/tasks/${id}?toast=updated`);
 }
 
 export async function deleteTask(id: number) {
@@ -43,5 +43,5 @@ export async function deleteTask(id: number) {
   if (!res.ok) throw new Error("Failed to delete task.");
 
   revalidatePath("/tasks");
-  redirect("/tasks");
+  redirect("/tasks?toast=deleted");
 }

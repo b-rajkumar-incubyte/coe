@@ -98,22 +98,22 @@ Goal: Make mutations feel instant, then clean up and ship.
 ## Module 9: Tailwind CSS & Design System
 Goal: Move from ad-hoc Tailwind usage to a deliberate design system — consistent tokens, responsive layouts, and an understanding of the trade-off when adding a component library.
 
-- [ ] Step 9.1: Design tokens in globals.css — :root variables + @theme inline, Tailwind v4's config model
-- [ ] Step 9.2: Responsive layout — Tailwind breakpoints, make the task list adapt from mobile to desktop
-- [ ] Step 9.3: Polish the task listing page — empty state, hover transitions, consistent spacing
-- [ ] Step 9.4: shadcn/ui — install one component to understand the component-library trade-off
-- [ ] Step 9.5: Checkpoint — Tailwind design system
+- [x] Step 9.1: Design tokens in globals.css — :root variables + @theme inline, Tailwind v4's config model
+- [x] Step 9.2: Responsive layout — Tailwind breakpoints, make the task list adapt from mobile to desktop
+- [x] Step 9.3: Polish the task listing page — empty state, hover transitions, consistent spacing
+- [x] Step 9.4: shadcn/ui — install one component to understand the component-library trade-off
+- [x] Step 9.5: Checkpoint — Tailwind design system
 
 ---
 
 ## Module 10: Loading Skeletons
 Goal: Replace blank loading states with skeleton screens that preserve layout stability and feel faster.
 
-- [ ] Step 10.1: Why skeletons beat spinners — perceived performance and layout shift
-- [ ] Step 10.2: Build TaskListSkeleton — animate-pulse placeholders that mirror the real list
-- [ ] Step 10.3: Build TaskDetailSkeleton — mirror the task detail layout
-- [ ] Step 10.4: Wire skeletons into app/tasks/loading.tsx and app/tasks/[id]/loading.tsx
-- [ ] Step 10.5: Checkpoint — loading UX patterns
+- [x] Step 10.1: Why skeletons beat spinners — perceived performance and layout shift
+- [x] Step 10.2: Build TaskListSkeleton — animate-pulse placeholders that mirror the real list
+- [x] Step 10.3: Build TaskDetailSkeleton — mirror the task detail layout
+- [x] Step 10.4: Wire skeletons into app/tasks/loading.tsx and app/tasks/[id]/loading.tsx
+- [x] Step 10.5: Checkpoint — loading UX patterns
 
 ---
 
