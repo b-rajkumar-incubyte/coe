@@ -14,12 +14,12 @@ export default async function TaskDetailPage({
   const task: Task = await res.json();
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-gray-50 px-4 py-6 sm:px-8 sm:py-10">
       <div className="max-w-2xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <Link
             href="/tasks"
-            className="text-sm text-gray-500 hover:text-blue-600 transition-colors"
+            className="text-sm text-gray-500 hover:text-brand-600 transition-colors"
           >
             ← Back to tasks
           </Link>
@@ -27,7 +27,7 @@ export default async function TaskDetailPage({
             <DeleteTaskButton taskId={task.id} />
             <Link
               href={`/tasks/${id}/edit`}
-              className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 text-sm bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors"
             >
               Edit
             </Link>
