@@ -1,6 +1,7 @@
 import Link from "next/link";
 import TaskList from "@/components/TaskList";
 import { type Task } from "@/components/TaskCard";
+import { apiFetch } from "@/lib/api";
 
 type TasksResponse = {
   tasks: Task[];
@@ -19,9 +20,7 @@ export default async function TasksPage({
   const { page: pageParam } = await searchParams;
   const page = Math.max(1, Number(pageParam ?? 1));
 
-  const res = await fetch(
-    `http://localhost:8001/task?page=${page}&size=${PAGE_SIZE}`
-  );
+  const res = await apiFetch(`/task?page=${page}&size=${PAGE_SIZE}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch tasks");

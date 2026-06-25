@@ -1,6 +1,7 @@
 import Link from "next/link";
 import EditTaskForm from "@/components/EditTaskForm";
 import { type Task } from "@/components/TaskCard";
+import { apiFetch } from "@/lib/api";
 
 export default async function EditTaskPage({
   params,
@@ -9,7 +10,7 @@ export default async function EditTaskPage({
 }) {
   const { id } = await params;
 
-  const res = await fetch(`http://localhost:8001/task/${id}`);
+  const res = await apiFetch(`/task/${id}`);
   if (!res.ok) {
     throw new Error(`Task ${id} not found`);
   }

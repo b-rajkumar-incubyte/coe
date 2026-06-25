@@ -2,9 +2,10 @@
 
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { apiFetch } from "@/lib/api";
 
 export async function createTask(title: string, description?: string) {
-  const res = await fetch("http://localhost:8001/task", {
+  const res = await apiFetch("/task", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title, description }),
@@ -23,7 +24,7 @@ export async function updateTask(
   description?: string,
   status?: string,
 ) {
-  const res = await fetch(`http://localhost:8001/task/${id}`, {
+  const res = await apiFetch(`/task/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ title, description, status }),
@@ -36,7 +37,7 @@ export async function updateTask(
 }
 
 export async function deleteTask(id: number) {
-  const res = await fetch(`http://localhost:8001/task/${id}`, {
+  const res = await apiFetch(`/task/${id}`, {
     method: "DELETE",
   });
 
