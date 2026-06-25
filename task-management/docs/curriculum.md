@@ -177,12 +177,13 @@ Goal: Lock down the task routes so only requests carrying a valid JWT get throug
 Goal: Add a login flow to the frontend, store the JWT securely in an httpOnly cookie, and gate the app behind authentication.
 
 - [ ] Step 16.1: Next.js auth patterns — why an httpOnly cookie beats localStorage, and how Server Components read it
-- [ ] Step 16.2: Build the login page and form at app/login/page.tsx
-- [ ] Step 16.3: Login Server Action — POST to /auth/login and set the JWT in an httpOnly cookie with cookies()
-- [ ] Step 16.4: Forward the token — read the cookie server-side and send it as a Bearer header on every API call
-- [ ] Step 16.5: Protect routes with middleware.ts — redirect unauthenticated users to /login
-- [ ] Step 16.6: Add logout (clear the cookie) and show login/logout state in the nav
-- [ ] Step 16.7: Checkpoint — token storage, middleware, and the server-to-server request flow
+- [x] Step 16.2: Build the login page and form at app/login/page.tsx
+- [x] Step 16.3: Login Server Action — POST to /auth/login and set the JWT in an httpOnly cookie with cookies()
+- [x] Step 16.4: Forward the token — read the cookie server-side and send it as a Bearer header on every API call (via lib/api.ts apiFetch wrapper)
+- [x] Step 16.5: Protect routes with proxy.ts (Next 16's renamed middleware) — redirect unauthenticated users to /login
+- [x] Step 16.6: Add logout (clear the cookie) and show login/logout state in the nav
+- [x] Step 16.7: Add the register page — form + register Server Action that signs the new user in automatically
+- [x] Step 16.8: Checkpoint — token storage, middleware, and the server-to-server request flow
 
 ---
 
