@@ -158,8 +158,8 @@ Goal: Let users register and log in. Store passwords hashed with bcrypt and issu
 - [x] Step 14.2: Add a `password` field to the User model and run a Prisma migration
 - [x] Step 14.3: Install bcrypt and hash passwords — build the POST /auth/register endpoint
 - [x] Step 14.4: Install @nestjs/jwt and add token signing to AuthService (AuthModule scaffolded in 14.3)
-- [ ] Step 14.5: Build POST /auth/login — verify the password with bcrypt.compare and return a signed JWT
-- [ ] Step 14.6: Checkpoint — hashing, signing, and what lives inside a token
+- [x] Step 14.5: Build POST /auth/login — verify the password with bcrypt.compare and return a signed JWT
+- [x] Step 14.6: Checkpoint — hashing, signing, and what lives inside a token
 
 ---
 
