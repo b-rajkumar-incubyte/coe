@@ -147,4 +147,53 @@ Goal: Make the app usable by keyboard and screen reader users without changing i
 - [x] Step 13.2: ARIA labels on icon-only buttons — audited; theme toggle + dialog close already labeled
 - [x] Step 13.3: Live regions — aria-live on status changes so screen readers announce them
 - [x] Step 13.4: Skip-to-main-content link — lets keyboard users bypass the nav bar
-- [ ] Step 13.5: Checkpoint — accessibility audit
+- [x] Step 13.5: Checkpoint — accessibility audit
+
+---
+
+## Module 14: JWT Authentication — NestJS Backend
+Goal: Let users register and log in. Store passwords hashed with bcrypt and issue a signed JWT on successful login.
+
+- [ ] Step 14.1: What JWT authentication is — the header.payload.signature token and why it lets the server stay stateless
+- [x] Step 14.2: Add a `password` field to the User model and run a Prisma migration
+- [ ] Step 14.3: Install bcrypt and hash passwords — build the POST /auth/register endpoint
+- [ ] Step 14.4: Install @nestjs/jwt and create AuthModule + AuthService
+- [ ] Step 14.5: Build POST /auth/login — verify the password with bcrypt.compare and return a signed JWT
+- [ ] Step 14.6: Checkpoint — hashing, signing, and what lives inside a token
+
+---
+
+## Module 15: Protecting API Routes with Guards
+Goal: Lock down the task routes so only requests carrying a valid JWT get through, and scope tasks to the logged-in user.
+
+- [ ] Step 15.1: NestJS Guards — the CanActivate interface and where guards sit in the request lifecycle
+- [ ] Step 15.2: Install passport-jwt and configure a JwtStrategy that validates the token and extracts its payload
+- [ ] Step 15.3: Create JwtAuthGuard and apply it to the task routes — confirm 401 without a token
+- [ ] Step 15.4: Build a @CurrentUser decorator and scope task queries to the authenticated user's id
+- [ ] Step 15.5: Checkpoint — guards, strategies, and request-scoped user data
+
+---
+
+## Module 16: Frontend Authentication — Next.js
+Goal: Add a login flow to the frontend, store the JWT securely in an httpOnly cookie, and gate the app behind authentication.
+
+- [ ] Step 16.1: Next.js auth patterns — why an httpOnly cookie beats localStorage, and how Server Components read it
+- [ ] Step 16.2: Build the login page and form at app/login/page.tsx
+- [ ] Step 16.3: Login Server Action — POST to /auth/login and set the JWT in an httpOnly cookie with cookies()
+- [ ] Step 16.4: Forward the token — read the cookie server-side and send it as a Bearer header on every API call
+- [ ] Step 16.5: Protect routes with middleware.ts — redirect unauthenticated users to /login
+- [ ] Step 16.6: Add logout (clear the cookie) and show login/logout state in the nav
+- [ ] Step 16.7: Checkpoint — token storage, middleware, and the server-to-server request flow
+
+---
+
+## Module 17: Deployment
+Goal: Deploy the backend to Railway and the frontend to Vercel, wire them together, and document the whole process.
+
+- [ ] Step 17.1: Deployment basics — what changes from local to production (env vars, build step, CORS, cookie domains)
+- [ ] Step 17.2: Prepare the backend for Railway — production build scripts, env vars, and a managed Postgres database
+- [ ] Step 17.3: Deploy the backend to Railway and run the Prisma migration against the hosted database
+- [ ] Step 17.4: Prepare and deploy the frontend to Vercel — set the backend API URL as an environment variable
+- [ ] Step 17.5: Wire the two together — update CORS origin, cookie settings, and verify login works end-to-end in production
+- [ ] Step 17.6: Write docs/deployment.md — a reproducible guide for redeploying both services
+- [ ] Step 17.7: Checkpoint — the production deployment model
