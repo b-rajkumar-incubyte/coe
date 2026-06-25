@@ -156,8 +156,8 @@ Goal: Let users register and log in. Store passwords hashed with bcrypt and issu
 
 - [ ] Step 14.1: What JWT authentication is — the header.payload.signature token and why it lets the server stay stateless
 - [x] Step 14.2: Add a `password` field to the User model and run a Prisma migration
-- [ ] Step 14.3: Install bcrypt and hash passwords — build the POST /auth/register endpoint
-- [ ] Step 14.4: Install @nestjs/jwt and create AuthModule + AuthService
+- [x] Step 14.3: Install bcrypt and hash passwords — build the POST /auth/register endpoint
+- [ ] Step 14.4: Install @nestjs/jwt and add token signing to AuthService (AuthModule scaffolded in 14.3)
 - [ ] Step 14.5: Build POST /auth/login — verify the password with bcrypt.compare and return a signed JWT
 - [ ] Step 14.6: Checkpoint — hashing, signing, and what lives inside a token
 

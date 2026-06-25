@@ -1,21 +1,24 @@
 import { PrismaClient, TaskStatus } from '../generated/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
+import * as bcrypt from 'bcrypt';
 import 'dotenv/config';
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
+    const passwordHash = await bcrypt.hash('password123', 10);
+
     const alice = await prisma.user.upsert({
         where: { email: 'alice@example.com' },
         update: {},
-        create: { name: 'Alice', email: 'alice@example.com' },
+        create: { name: 'Alice', email: 'alice@example.com', password: passwordHash },
     });
 
     const bob = await prisma.user.upsert({
         where: { email: 'bob@example.com' },
         update: {},
-        create: { name: 'Bob', email: 'bob@example.com' },
+        create: { name: 'Bob', email: 'bob@example.com', password: passwordHash },
     });
 
     await prisma.task.createMany({
