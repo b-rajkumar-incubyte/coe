@@ -166,11 +166,10 @@ Goal: Let users register and log in. Store passwords hashed with bcrypt and issu
 ## Module 15: Protecting API Routes with Guards
 Goal: Lock down the task routes so only requests carrying a valid JWT get through, and scope tasks to the logged-in user.
 
-- [ ] Step 15.1: NestJS Guards — the CanActivate interface and where guards sit in the request lifecycle
-- [ ] Step 15.2: Install passport-jwt and configure a JwtStrategy that validates the token and extracts its payload
-- [ ] Step 15.3: Create JwtAuthGuard and apply it to the task routes — confirm 401 without a token
-- [ ] Step 15.4: Build a @CurrentUser decorator and scope task queries to the authenticated user's id
-- [ ] Step 15.5: Checkpoint — guards, strategies, and request-scoped user data
+- [x] Step 15.1: NestJS Guards — the CanActivate interface; build a JwtAuthGuard that verifies the Bearer token and protect the task routes (401 without a valid token)
+- [x] Step 15.2: Build a @CurrentUser decorator that reads the verified token payload off the request (+ GET /auth/me)
+- [x] Step 15.3: Scope tasks to the authenticated user — stamp userId on create and filter reads by the current user
+- [x] Step 15.4: Checkpoint — guards, the request lifecycle, and request-scoped user data (and where passport-jwt would fit)
 
 ---
 
