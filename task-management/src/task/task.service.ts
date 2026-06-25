@@ -1,5 +1,4 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { Prisma } from "../../generated/prisma/client";
 import { PrismaService } from "../prisma/prisma.service";
 import { CreateTaskDto } from "./dto/create-task.dto";
 import { UpdateTaskDto } from "./dto/update-task.dto";
@@ -8,55 +7,46 @@ import { UpdateTaskDto } from "./dto/update-task.dto";
 export class TaskService {
     constructor(private readonly prisma: PrismaService) {}
 
-    async get(taskId: number) {
-        const task = await this.prisma.task.findUnique({ where: { id: taskId } });
+    async get(taskId: number, userId: number) {
+        const task = await this.prisma.task.findFirst({ where: { id: taskId, userId } });
         if(task === null) throw new NotFoundException(`Task with id: ${taskId} not found`);
 
         return task;
     }
 
-    async getAll(page: number, limit: number) {
+    async getAll(userId: number, page: number, limit: number) {
         const skip = (page - 1) * limit;
 
         const [tasks, total] = await this.prisma.$transaction([
-            this.prisma.task.findMany({skip,take: limit,include: {user: true}}),
-            this.prisma.task.count()
+            this.prisma.task.findMany({where: {userId},skip,take: limit,include: {user: true}}),
+            this.prisma.task.count({where: {userId}})
         ]);
 
         return {
             tasks,
             total,
-            page, 
+            page,
             limit
         }
     }
 
-    createTask(dto: CreateTaskDto) {
+    createTask(dto: CreateTaskDto, userId: number) {
         return this.prisma.task.create({
             data: {
                 title: dto.title,
                 description: dto.description,
+                userId,
             },
         });
     }
 
-    async deleteTask(id: number): Promise<void> {
-        await this.prisma.task.delete({ where: { id } }).catch(this.handleNotFound(id));
+    async deleteTask(id: number, userId: number): Promise<void> {
+        await this.get(id, userId);
+        await this.prisma.task.delete({ where: { id } });
     }
 
-    async updateTask(id: number, dto: UpdateTaskDto) {
-        return this.prisma.task.update({
-            where: { id },
-            data: dto,
-        }).catch(this.handleNotFound(id));
-    }
-
-    private handleNotFound(id: number) {
-        return (err: unknown) => {
-            if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2025') {
-                throw new NotFoundException(`Task with id ${id} not found`);
-            }
-            throw err;
-        };
+    async updateTask(id: number, dto: UpdateTaskDto, userId: number) {
+        await this.get(id, userId);
+        return this.prisma.task.update({ where: { id }, data: dto });
     }
 }
