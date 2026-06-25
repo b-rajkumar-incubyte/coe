@@ -143,8 +143,8 @@ Goal: Add system-aware dark mode using Tailwind's dark: variant and a toggle tha
 ## Module 13: Accessibility
 Goal: Make the app usable by keyboard and screen reader users without changing its visual design.
 
-- [ ] Step 13.1: focus-visible styles — keyboard focus rings that don't affect mouse users
-- [ ] Step 13.2: ARIA labels on icon-only buttons — delete button, copy-link button
-- [ ] Step 13.3: Live regions — aria-live on status changes so screen readers announce them
-- [ ] Step 13.4: Skip-to-main-content link — lets keyboard users bypass the nav bar
+- [x] Step 13.1: focus-visible styles — keyboard focus rings that don't affect mouse users
+- [x] Step 13.2: ARIA labels on icon-only buttons — audited; theme toggle + dialog close already labeled
+- [x] Step 13.3: Live regions — aria-live on status changes so screen readers announce them
+- [x] Step 13.4: Skip-to-main-content link — lets keyboard users bypass the nav bar
 - [ ] Step 13.5: Checkpoint — accessibility audit

@@ -162,6 +162,11 @@
   html {
     @apply font-sans;
   }
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-background;
+  }
 }
 
 @keyframes toast-in {
