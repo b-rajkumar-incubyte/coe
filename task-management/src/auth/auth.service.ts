@@ -1,4 +1,5 @@
 import { ConflictException, Injectable } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
 import * as bcrypt from "bcrypt";
 import { PrismaService } from "../prisma/prisma.service";
 import { RegisterDto } from "./dto/register.dto";
@@ -7,7 +8,10 @@ const SALT_ROUNDS = 10;
 
 @Injectable()
 export class AuthService {
-    constructor(private readonly prisma: PrismaService) {}
+    constructor(
+        private readonly prisma: PrismaService,
+        private readonly jwt: JwtService,
+    ) {}
 
     async register({ name, email, password }: RegisterDto) {
         const existing = await this.prisma.user.findUnique({ where: { email } });
@@ -21,6 +25,11 @@ export class AuthService {
             data: { name, email, password: passwordHash },
         });
 
-        return { id: user.id, name: user.name, email: user.email };
+        const accessToken = await this.signToken(user.id, user.email);
+        return { accessToken, user: { id: user.id, name: user.name, email: user.email } };
+    }
+
+    private signToken(userId: number, email: string) {
+        return this.jwt.signAsync({ sub: userId, email });
     }
 }
