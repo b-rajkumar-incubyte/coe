@@ -32,8 +32,8 @@ export default function StatusToggle({ task }: { task: Task }) {
 
   return (
     <div className="mt-4">
-      <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Status</p>
-      <div className={`inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1 gap-1 ${isPending ? "opacity-70" : ""}`}>
+      <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Status</p>
+      <div className={`inline-flex rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-1 gap-1 ${isPending ? "opacity-70" : ""}`}>
         {STATUS_OPTIONS.map(({ value, label }) => (
           <button
             key={value}
@@ -42,7 +42,7 @@ export default function StatusToggle({ task }: { task: Task }) {
             className={`px-3 py-1.5 text-sm rounded-md font-medium transition-colors ${
               optimisticStatus === value
                 ? activeStyles[value]
-                : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+                : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
             }`}
           >
             {label}

@@ -21,12 +21,12 @@ const statusLabels: Record<TaskStatus, string> = {
 
 export default function TaskCard({ task }: { task: Task }) {
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-4">
+    <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="font-medium text-gray-900">{task.title}</p>
+          <p className="font-medium text-gray-900 dark:text-gray-100">{task.title}</p>
           {task.description && (
-            <p className="text-sm text-gray-500 mt-1">{task.description}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{task.description}</p>
           )}
         </div>
         <span

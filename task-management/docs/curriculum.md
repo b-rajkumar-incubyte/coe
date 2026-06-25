@@ -125,18 +125,18 @@ Goal: Give users non-blocking feedback after mutations using a lightweight toast
 - [x] Step 11.3: Add ToastContainer to the root layout
 - [x] Step 11.4: Trigger toasts after successful create / update / delete
 - [x] Step 11.5: Animate toasts in and out with Tailwind transitions
-- [ ] Step 11.6: Checkpoint — feedback and notification patterns
+- [x] Step 11.6: Checkpoint — feedback and notification patterns
 
 ---
 
 ## Module 12: Dark Mode
 Goal: Add system-aware dark mode using Tailwind's dark: variant and a toggle that persists the user's preference.
 
-- [ ] Step 12.1: Tailwind dark mode — class strategy vs media query strategy
-- [ ] Step 12.2: Configure tailwind.config.ts and update the root layout class
-- [ ] Step 12.3: Apply dark: variants to layout, nav, cards, and forms
-- [ ] Step 12.4: Build ThemeToggle — reads system preference, persists to localStorage
-- [ ] Step 12.5: Checkpoint — theming patterns
+- [x] Step 12.1: Tailwind dark mode — class strategy vs media query strategy
+- [x] Step 12.2: Verify the @custom-variant dark setup and add a no-flash theme script
+- [x] Step 12.3: Apply dark: variants to layout, nav, cards, and forms
+- [x] Step 12.4: Build ThemeToggle — reads system preference, persists to localStorage
+- [x] Step 12.5: Checkpoint — theming patterns
 
 ---
 

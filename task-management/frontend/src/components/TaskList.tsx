@@ -28,7 +28,7 @@ export default function TaskList({ tasks }: { tasks: Task[] }) {
             className={`px-3 py-1.5 text-sm rounded-full border transition-colors ${
               filter === value
                 ? "bg-brand-600 text-white border-brand-600"
-                : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
+                : "bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600"
             }`}
           >
             {label}
@@ -38,11 +38,11 @@ export default function TaskList({ tasks }: { tasks: Task[] }) {
 
       {tasks.length === 0 ? (
         <div className="text-center py-16">
-          <p className="font-medium text-gray-500">No tasks yet</p>
-          <p className="text-sm text-gray-400 mt-1">Create your first task to get started.</p>
+          <p className="font-medium text-gray-500 dark:text-gray-400">No tasks yet</p>
+          <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">Create your first task to get started.</p>
         </div>
       ) : visible.length === 0 ? (
-        <p className="text-sm text-gray-500 py-4">No tasks match this filter.</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400 py-4">No tasks match this filter.</p>
       ) : (
         <ul className="space-y-3">
           {visible.map((task) => (
