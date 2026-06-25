@@ -120,11 +120,11 @@ Goal: Replace blank loading states with skeleton screens that preserve layout st
 ## Module 11: Toast Notifications
 Goal: Give users non-blocking feedback after mutations using a lightweight toast system built from scratch.
 
-- [ ] Step 11.1: Toast vs inline error — when to use each and why
-- [ ] Step 11.2: Build ToastProvider — useContext + useReducer for toast state
-- [ ] Step 11.3: Add ToastContainer to the root layout
-- [ ] Step 11.4: Trigger toasts after successful create / update / delete
-- [ ] Step 11.5: Animate toasts in and out with Tailwind transitions
+- [x] Step 11.1: Toast vs inline error — when to use each and why
+- [x] Step 11.2: Build ToastProvider — useContext + useReducer for toast state
+- [x] Step 11.3: Add ToastContainer to the root layout
+- [x] Step 11.4: Trigger toasts after successful create / update / delete
+- [x] Step 11.5: Animate toasts in and out with Tailwind transitions
 - [ ] Step 11.6: Checkpoint — feedback and notification patterns
 
 ---
