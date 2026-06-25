@@ -191,7 +191,7 @@ Goal: Add a login flow to the frontend, store the JWT securely in an httpOnly co
 Goal: Deploy the backend to Railway and the frontend to Vercel, wire them together, and document the whole process.
 
 - [ ] Step 17.1: Deployment basics — what changes from local to production (env vars, build step, CORS, cookie domains)
-- [ ] Step 17.2: Prepare the backend for Railway — production build scripts, env vars, and a managed Postgres database
+- [x] Step 17.2: Prepare the backend for Railway — fix start path (dist/src/main), build generates client, start runs migrate deploy, prisma → deps, railway.json
 - [ ] Step 17.3: Deploy the backend to Railway and run the Prisma migration against the hosted database
 - [ ] Step 17.4: Prepare and deploy the frontend to Vercel — set the backend API URL as an environment variable
 - [ ] Step 17.5: Wire the two together — update CORS origin, cookie settings, and verify login works end-to-end in production
