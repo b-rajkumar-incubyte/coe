@@ -18,7 +18,7 @@ export class TaskService {
         const skip = (page - 1) * limit;
 
         const [tasks, total] = await this.prisma.$transaction([
-            this.prisma.task.findMany({where: {userId},skip,take: limit,include: {user: true}}),
+            this.prisma.task.findMany({where: {userId},skip,take: limit}),
             this.prisma.task.count({where: {userId}})
         ]);
 
