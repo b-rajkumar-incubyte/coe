@@ -2,6 +2,7 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { API_BASE } from "@/lib/api";
 
 const TOKEN_MAX_AGE = 60 * 60 * 24; // 1 day — matches the backend JWT expiry
 
@@ -18,7 +19,7 @@ async function storeToken(accessToken: string) {
 }
 
 export async function login(email: string, password: string) {
-  const res = await fetch("http://localhost:8001/auth/login", {
+  const res = await fetch(`${API_BASE}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -34,7 +35,7 @@ export async function login(email: string, password: string) {
 }
 
 export async function register(name: string, email: string, password: string) {
-  const res = await fetch("http://localhost:8001/auth/register", {
+  const res = await fetch(`${API_BASE}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password }),
